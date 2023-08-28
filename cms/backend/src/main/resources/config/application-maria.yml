@@ -30,6 +30,13 @@ spring:
   sql:
     init:
       mode: never #fixme
+
+logging:
+  level:
+    org.hibernate:
+      SQL: DEBUG
+      type.descriptor.sql: trace
+
 # port
 server:
   port: 8088

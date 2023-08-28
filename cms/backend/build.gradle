@@ -14,6 +14,9 @@ dependencies {
 
     // core Module
     implementation project(':core')
+
+    implementation group: 'com.querydsl', name: 'querydsl-jpa', version: '5.0.0'
+    annotationProcessor group: 'com.querydsl', name: 'querydsl-apt', version: '5.0.0'
 }
 
 bootJar {
