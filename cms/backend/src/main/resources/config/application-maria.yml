@@ -1,0 +1,15 @@
+spring:
+  config:
+    activate:
+      on-profile: maria
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/boot_redis?useSSL=false
+    username: root
+    password: 1234
+
+
+# port
+server:
+  port: 8080

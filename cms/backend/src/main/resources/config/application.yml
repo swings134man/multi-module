@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: cms-app
+
+  profiles:
+    active: maria

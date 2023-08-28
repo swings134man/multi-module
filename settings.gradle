@@ -1,0 +1,6 @@
+rootProject.name = 'multi'
+include 'core'
+include 'cms'
+include 'cms:backend'
+findProject(':cms:backend')?.name = 'backend'
+
