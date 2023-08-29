@@ -46,3 +46,6 @@
 - 테스트시, 일부 모듈의 의존성이 필요한 경우 테스트가 어려울 수 있음.
 
 <hr/>
+
+![multi-module drawio](https://github.com/swings134man/multi-module/assets/86291550/50b535f3-4b38-4724-92af-332948ccf0f4)
+
