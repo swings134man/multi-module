@@ -13,6 +13,8 @@ public interface TestJpaRepository extends JpaRepository<Test, Long>, TestCustom
     Test findByMessageContaining(String message); //test
 
     // QueryDsl Test
-//    List<Test> findByCreatedDate(String starDt, String endDt);
     List<Test> findByCreatedDateBetween(String createdDate, String createdDate2);
+
+    // condition get
+    List<Test> getTest(Test test);
 }

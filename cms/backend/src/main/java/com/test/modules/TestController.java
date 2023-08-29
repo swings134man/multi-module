@@ -1,6 +1,7 @@
 package com.test.modules;
 
 import com.test.core.modules.test.domain.Test;
+import com.test.core.modules.test.domain.TestDTO;
 import com.test.core.modules.test.service.TestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +34,16 @@ public class TestController {
     @GetMapping(value = "get/date")
     public ResponseEntity<List<Test>> getListDate(@RequestParam String starDt, @RequestParam String endDt) {
         List<Test> resultList = testService.getListDate(starDt, endDt);
+        return new ResponseEntity<>(resultList, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/get", produces = "application/json")
+    public ResponseEntity<List<Test>> getTest(TestDTO dto) {
+        if(dto == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        List<Test> resultList = testService.getTest(dto);
         return new ResponseEntity<>(resultList, HttpStatus.OK);
     }
 }

@@ -8,4 +8,6 @@ public interface TestCustomRepository {
 
     // QueryDsl Test
     List<Test> findByCreatedDateBetween(String createdDate, String createdDate2);
+
+    List<Test> getTest(Test test);
 }

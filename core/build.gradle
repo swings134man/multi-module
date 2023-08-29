@@ -15,6 +15,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation("org.mariadb.jdbc:mariadb-java-client:2.1.2") //mariaDB
     runtimeOnly 'com.mysql:mysql-connector-j' //mysql
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8' // Model mapper
 
     // Query DSL
 //    implementation 'com.querydsl:querydsl-jpa:${queryDslVersion}'
