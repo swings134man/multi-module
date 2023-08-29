@@ -5,17 +5,12 @@ import com.test.core.modules.test.domain.QTest;
 import com.test.core.modules.test.domain.Test;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class TestRepositoryImpl implements TestCustomRepository {
+public class TestCustomRepositoryImpl implements TestCustomRepository {
 
     private final JPAQueryFactory queryFactory;
-
-//    public TestRepositoryImpl(EntityManager em) {
-//        this.queryFactory = new JPAQueryFactory(em);
-//    }
 
     @Override
     public List<Test> findByCreatedDateBetween(String starDt, String endDt) {

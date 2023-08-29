@@ -2,7 +2,6 @@ package com.test.core.modules.test.service;
 
 import com.test.core.modules.test.domain.Test;
 import com.test.core.modules.test.repository.TestJpaRepository;
-import com.test.core.modules.test.repository.TestRepositoryImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
