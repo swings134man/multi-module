@@ -1,17 +1,11 @@
 spring:
   config:
     activate:
-      on-profile: maria
-
-  devtools:
-    restart:
-      enabled: true
-    livereload:
-      enabled: true
+      on-profile: mysql
 
   datasource:
     hikari:
-      driver-class-name: org.mariadb.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
       idle-timeout: 180000 # 3*60*1000 = 3Min(유휴 상태 Connection 제거)
       max-lifetime: 900000 # 15*60*1000 = 15Min(최대 Connection 생존 시간)
       minimum-idle: 0 # 최소 Connection 수
@@ -20,7 +14,7 @@ spring:
       prep-stmt-cache-size: 200 # Prepared Statement 캐시 사이즈
       prep-stmt-cache-sql-limit: 2048 # Prepared Statement 캐시 SQL 사이즈
       use-server-prep-stmts: true # 서버에서 Prepared Statement 사용 여부(서버 쿼리 최적화)
-    url: jdbc:mariadb://localhost:3306/multi_dev?useSSL=false
+    url: jdbc:mysql://localhost:3306/multi_dev?useSSL=false
     username: root
     password: 1234
 
