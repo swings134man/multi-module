@@ -22,6 +22,7 @@ public class TestController {
     @GetMapping(value = "/{message}")
     public ResponseEntity<String> test(@PathVariable String message) {
         String result = testService.test(message);
+//        String result = testService.basicTest(message); //Repository
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
