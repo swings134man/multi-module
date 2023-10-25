@@ -49,3 +49,6 @@
 
 ![multi-module drawio](https://github.com/swings134man/multi-module/assets/86291550/50b535f3-4b38-4724-92af-332948ccf0f4)
 
+<br><br>
+### Gen QEntity 
+- gralde > core > tasks > querydsl > initSourceDir 

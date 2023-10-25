@@ -3,6 +3,8 @@ spring:
     activate:
       on-profile: mysql
 
+# swagger : http://localhost:8088/swagger-ui.html#/
+
   datasource:
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
