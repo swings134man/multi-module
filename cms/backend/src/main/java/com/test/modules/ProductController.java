@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -25,5 +27,9 @@ public class ProductController {
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
-
+    @GetMapping(value = "/list", produces = "application/json")
+    public ResponseEntity<List<Product>> listProduct() {
+        List<Product> result = productService.listProduct();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }

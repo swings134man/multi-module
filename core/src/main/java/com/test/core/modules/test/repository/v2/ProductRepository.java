@@ -7,6 +7,7 @@ import com.test.core.modules.test.domain.QProduct;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 @Repository
 public class ProductRepository extends CommonRepository<Product, Long> {
@@ -21,5 +22,11 @@ public class ProductRepository extends CommonRepository<Product, Long> {
         this.queryFactory = super.getQueryFactory();
     }
 
+    public List<Product> listProduct() {
+        return queryFactory.selectFrom(product)
+                .where(product.productName.isNotNull())
+                .orderBy(product.id.desc())
+                .fetch();
+    }
 
 }
