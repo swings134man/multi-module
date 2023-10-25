@@ -1,11 +1,13 @@
 package com.test.core.config;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -13,12 +15,16 @@ import java.util.Date;
 @Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class BaseTimeEntity {
+public class BaseTimeEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @CreatedDate
+    @JsonProperty("createdDate")
     private String createdDate;
 
     @LastModifiedDate
+    @JsonProperty("updateDate")
     private String updateDate;
 
     @PrePersist

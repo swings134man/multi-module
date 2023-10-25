@@ -29,4 +29,11 @@ public abstract class CommonRepository<T, ID> extends SimpleJpaRepository<T, ID>
     }
 
 
+    protected EntityPathBase<T> getEntity() {
+        return entity;
+    }
+
+    protected JPAQueryFactory getQueryFactory() {
+        return queryFactory;
+    }
 }
