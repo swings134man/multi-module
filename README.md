@@ -6,12 +6,20 @@
 <hr/>
 
 ### uses
-- nvm (0.39.3)
-- npm (v9.5.1)
-- <b>node (v18.16.0)</b>
-- <b>java 17</b>
-- <b>spring boot 2.7.15</b>
-- mariadb 
+- <b>front-end</b>
+  - nvm (0.39.3)
+  - npm (v9.5.1)
+  - node (v18.16.0)
+  - Quasar (v2.0.0-beta.4)
+  - Vue.js (v3.2.20)
+  - TypeScript
+
+<br/>
+
+- <b>back-end</b>
+  - java 17
+  - spring boot 2.7.15
+  - mariadb 
 
 
 ### project structure
@@ -51,4 +59,10 @@
 
 <br><br>
 ### Gen QEntity 
-- gralde > core > tasks > querydsl > initSourceDir 
+- gralde > core > tasks > querydsl > initSourceDir
+
+<br><br>
+
+## Front Side
+1. npm install 
+2. npm run dev : 개발 실행
