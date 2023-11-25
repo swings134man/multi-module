@@ -17,6 +17,10 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
+### CMS / frontend ###
+/cms/frontend/node_modules/
+
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
