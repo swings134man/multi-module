@@ -12,10 +12,24 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          CMS Back Office
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>
+          <q-toggle
+            v-model="darkMode"
+            color="red"
+            label="Dark"
+            left-label
+            dense
+            @click="toggleDarkMode()"
+          >
+
+          </q-toggle>
+          <div>
+            Quasar v{{ $q.version }}
+          </div>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -48,6 +62,7 @@
 <script setup lang="ts">
 import {defineComponent, onMounted, ref, defineProps} from 'vue';
 import EssentialLink from 'components/EssentialLink.vue';
+import {useQuasar} from "quasar";
 
 const linksList = [
   {
@@ -94,6 +109,9 @@ const linksList = [
   }
 ];
 
+const $q = useQuasar();
+const darkMode = ref(false);
+
 const leftDrawerOpen = ref(false);
 
 const toggleLeftDrawer = () => {
@@ -122,12 +140,17 @@ onMounted(() => {
 const init = () => {
   setup();
   console.log('setup Complete');
+  console.log('is Dark ? ', $q.dark.isActive);
 };
 
 const setup = () => {
   return {
-    // essentialLinks: props.essentialLinks || linksList,
     leftDrawerOpen,
   }
+};
+
+const toggleDarkMode = () => {
+  console.log('toggleDarkMode', darkMode.value);
+  $q.dark.set(darkMode.value);
 };
 </script>
