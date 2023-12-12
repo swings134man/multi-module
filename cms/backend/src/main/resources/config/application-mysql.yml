@@ -16,9 +16,9 @@ spring:
       prep-stmt-cache-size: 200 # Prepared Statement 캐시 사이즈
       prep-stmt-cache-sql-limit: 2048 # Prepared Statement 캐시 SQL 사이즈
       use-server-prep-stmts: true # 서버에서 Prepared Statement 사용 여부(서버 쿼리 최적화)
-    url: jdbc:mysql://localhost:3306/multi_dev?useSSL=false
-    username: root
-    password: 1234
+      jdbc-url: jdbc:mysql://localhost:3306/multi_dev?useSSL=false # for hikari connection pool (수동설정)
+      username: root
+      password: 1234
 
 # JPA Setting
   jpa:

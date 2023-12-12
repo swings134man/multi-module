@@ -21,10 +21,12 @@ public class BaseTimeEntity implements Serializable {
 
     @CreatedDate
     @JsonProperty("createdDate")
+    @Column(name = "CREATED_DATE", updatable = false)
     private String createdDate;
 
     @LastModifiedDate
     @JsonProperty("updateDate")
+    @Column(name = "UPDATE_DATE")
     private String updateDate;
 
     @PrePersist
