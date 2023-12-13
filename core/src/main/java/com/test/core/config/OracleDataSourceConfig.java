@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 )
 public class OracleDataSourceConfig {
 
-    @Bean(name = "mainDataSource")
+    @Bean(name = "oraDataSource")
     @ConfigurationProperties(prefix = "spring.datasource-oracle.hikari")
     public HikariDataSource oraDataSource() {
         return DataSourceBuilder.create()
