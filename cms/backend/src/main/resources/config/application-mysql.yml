@@ -20,6 +20,16 @@ spring:
       username: root
       password: 1234
 
+
+  # Oracle DB TEST
+  datasource-oracle:
+    hikari:
+      driver-class-name: oracle.jdbc.OracleDriver
+      jdbc-url: jdbc:oracle:thin:@localhost:1521:xe
+      username: root
+      password: 1234
+
+
 # JPA Setting
   jpa:
     show-sql: true
