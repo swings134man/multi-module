@@ -1,6 +1,7 @@
 package com.test.core.config;
 
 import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,8 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
@@ -21,8 +24,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class OracleDataSourceConfig {
 
     @Bean(name = "oraDataSource")
+    @Qualifier("oraDataSource")
     @ConfigurationProperties(prefix = "spring.datasource-oracle.hikari")
-    public HikariDataSource oraDataSource() {
+    public DataSource oraDataSource() {
         return DataSourceBuilder.create()
                 .type(HikariDataSource.class)
                 .build();
@@ -30,6 +34,7 @@ public class OracleDataSourceConfig {
 
 
     @Bean(name = "oraEntityManagerFactory")
+    @Qualifier("oraEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean oraEntityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(oraDataSource());
@@ -39,6 +44,7 @@ public class OracleDataSourceConfig {
     }
 
     @Bean(name = "oraTransactionManager")
+    @Qualifier("oraTransactionManager")
     public JpaTransactionManager oraTransaction() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(oraEntityManagerFactoryBean().getObject());
