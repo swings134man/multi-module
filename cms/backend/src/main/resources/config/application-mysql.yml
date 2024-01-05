@@ -46,8 +46,8 @@ spring:
 logging:
   level:
     org.hibernate:
-      SQL: OFF #DEBUG, OFF
-      type.descriptor.sql: OFF #trace, OFF
+      SQL: DEBUG #DEBUG, OFF
+      type.descriptor.sql: trace #trace, OFF
 
 # port
 server:

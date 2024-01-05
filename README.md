@@ -19,6 +19,8 @@
 - <b>back-end</b>
   - java 17
   - spring boot 2.7.15
+  - <b>QueryDSL</b>
+  - MySQL
   - mariadb 
 
 
@@ -59,7 +61,7 @@
 
 <br><br>
 ### Gen QEntity 
-- gralde > core > tasks > querydsl > initSourceDir
+- gradle > core > tasks > querydsl > initSourceDir
 
 <br><br>
 
