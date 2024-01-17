@@ -73,6 +73,9 @@ public class PushService {
 
 
     // QueryDsl 를 통한 DSL 쿼리 사용가능
+    // 추가: JOIN과 같이 여러테이블 참조 + lazy 로딩시 readOnly = true 사용해야함.
+    // ---> auto flush 가 발생하지 않는다.
+    // @Transactional 만 사용했을때 auto flush 발생 -> 지연로딩 사용하는 데이터 객체(테이블) 조회시 에러 발생
     @Transactional(readOnly = true)
     public List<Push> cusFindByType(String type) {
         List<Push> pushes = customRepository.cusFindByType(type);
