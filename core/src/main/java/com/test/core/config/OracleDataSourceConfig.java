@@ -2,6 +2,7 @@ package com.test.core.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
+@ConditionalOnProperty(prefix = "db.source.oracle", name = "enabled", havingValue = "true", matchIfMissing = true) // 지정된 속성이 존재하는 경우에만 빈을 등록
 @EnableTransactionManagement
 @EnableJpaRepositories(
         basePackages = {"com.test.core.log"},
