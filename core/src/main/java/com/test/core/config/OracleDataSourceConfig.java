@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
-@ConditionalOnProperty(prefix = "db.source.oracle", name = "enabled", havingValue = "true", matchIfMissing = true) // 지정된 속성이 존재하는 경우에만 빈을 등록
+@ConditionalOnProperty(prefix = "db.source.oracle", name = "enabled", havingValue = "true", matchIfMissing = false) // 지정된 속성이 존재하는 경우에만 빈을 등록(havingValue 와 일치해야함), matchIfMissing : 속성이 없는 경우에도 빈을 등록할지 여부
 @EnableTransactionManagement
 @EnableJpaRepositories(
         basePackages = {"com.test.core.log"},
