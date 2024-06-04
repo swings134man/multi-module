@@ -64,6 +64,7 @@
 import {defineComponent, onMounted, ref, defineProps} from 'vue';
 import EssentialLink from 'components/EssentialLink.vue';
 import {useQuasar} from "quasar";
+import {useThemeStore} from "stores/theme";
 
 const linksList = [
   // {
@@ -126,6 +127,7 @@ const $q = useQuasar();
 const darkMode = ref(false);
 
 const leftDrawerOpen = ref(false);
+const store = useThemeStore();
 
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value;
@@ -154,6 +156,7 @@ const init = () => {
   setup();
   console.log('setup Complete');
   console.log('is Dark ? ', $q.dark.isActive);
+  console.log('Pinia Store Dark', store.dark);
 };
 
 const setup = () => {
@@ -165,5 +168,8 @@ const setup = () => {
 const toggleDarkMode = () => {
   console.log('toggleDarkMode', darkMode.value);
   $q.dark.set(darkMode.value);
+  store.setDark(darkMode.value);
+
+  console.log('Pinia Store Dark', store.dark);
 };
 </script>
