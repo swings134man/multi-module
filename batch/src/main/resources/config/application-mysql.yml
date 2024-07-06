@@ -6,11 +6,6 @@ spring:
 # swagger : http://localhost:8088/swagger-ui.html#/
 
   datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/multi_dev?useSSL=false
-#    username: root
-#    password: 1234
-
       hikari:
         driver-class-name: com.mysql.cj.jdbc.Driver
         idle-timeout: 180000 # 3*60*1000 = 3Min(유휴 상태 Connection 제거)
