@@ -1,4 +1,4 @@
-package com.test.rest;
+package com.test.batch.rest;
 
 import com.test.core.modules.test.service.TestService;
 import lombok.RequiredArgsConstructor;

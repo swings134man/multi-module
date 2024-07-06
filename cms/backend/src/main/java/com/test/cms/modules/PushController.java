@@ -1,4 +1,4 @@
-package com.test.modules;
+package com.test.cms.modules;
 
 import com.test.core.modules.dsl.conf.Push;
 import com.test.core.modules.dsl.conf.PushService;

@@ -1,4 +1,4 @@
-package com.test.modules;
+package com.test.cms.modules;
 
 import com.test.core.modules.test.domain.Test;
 import com.test.core.modules.test.domain.TestDTO;

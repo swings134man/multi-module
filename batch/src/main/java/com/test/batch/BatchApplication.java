@@ -1,9 +1,9 @@
-package com.test;
+package com.test.batch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.test")
 public class BatchApplication {
 
 	public static void main(String[] args) {
