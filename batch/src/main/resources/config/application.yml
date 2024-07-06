@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: batch
+
+  profiles:
+    active: mysql
+
+server:
+  port: 8084

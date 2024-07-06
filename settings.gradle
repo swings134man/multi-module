@@ -1,6 +1,11 @@
 rootProject.name = 'multi'
 include 'core'
-include 'cms'
-include 'cms:backend'
-findProject(':cms:backend')?.name = 'backend'
+project(':core').projectDir = file('core')
 
+//include 'cms'
+include 'cms:backend'
+project(':cms:backend').projectDir = file('cms/backend')
+//findProject(':cms:backend')?.name = 'backend'
+
+include 'batch'
+project(':batch').projectDir = file('batch')

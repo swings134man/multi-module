@@ -30,10 +30,10 @@ jar {
 // Build Option for Profile
 ext.profile = (!project.hasProperty('profile') || !profile) ? 'maria' : profile
 
-sourceSets {
-    main {
-        resources {
-            srcDirs = ['src/main/resources/config', "src/main/resources/config-${profile}"]
-        }
-    }
-}
+//sourceSets {
+//    main {
+//        resources {
+//            srcDirs = ['src/main/resources/config', "src/main/resources/config-${profile}"]
+//        }
+//    }
+//}

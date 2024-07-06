@@ -1,0 +1,42 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot'
+	id 'io.spring.dependency-management'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation project(':core')
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+
+bootJar {
+	enabled = true
+}
+
+jar {
+	enabled = true
+}
+
+// Build Option for Profile
+ext.profile = (!project.hasProperty('profile') || !profile) ? 'maria' : profile
+
+//sourceSets {
+//	main {
+//		resources {
+//			srcDirs = ['src/main/resources/config', "src/main/resources/config-${profile}"]
+//		}
+//	}
+//}
+
+//dependencies {
+//	implementation 'org.springframework.boot:spring-boot-starter'
+//	compileOnly 'org.projectlombok:lombok'
+//	annotationProcessor 'org.projectlombok:lombok'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+//}

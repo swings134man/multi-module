@@ -14,7 +14,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation("org.mariadb.jdbc:mariadb-java-client:2.1.2") //mariaDB
-    runtimeOnly 'com.mysql:mysql-connector-j' //mysql
+//    runtimeOnly 'com.mysql:mysql-connector-j' //mysql
+    implementation 'mysql:mysql-connector-java:8.0.26'
     implementation group: 'com.oracle.database.jdbc', name: 'ojdbc6', version: '11.2.0.4'
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8' // Model mapper
     implementation 'org.kohsuke:github-api:1.301' // GitHub API

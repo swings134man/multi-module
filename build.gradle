@@ -48,9 +48,15 @@ subprojects { // 각모듈에 적용할 공통 설정
     }
 }
 
-project(':cms:backend'){
-    dependencies {
-        implementation project(':core')
+allprojects { pr ->
+    tasks.withType(Copy).configureEach {
+        setDuplicatesStrategy(DuplicatesStrategy.EXCLUDE)
     }
 }
+
+//project(':cms:backend'){
+//    dependencies {
+//        implementation project(':core')
+//    }
+//}
 
