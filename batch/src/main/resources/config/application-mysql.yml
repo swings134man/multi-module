@@ -6,34 +6,33 @@ spring:
 # swagger : http://localhost:8088/swagger-ui.html#/
 
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/multi_dev?useSSL=false
-    username: root
-    password: 1234
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/multi_dev?useSSL=false
+#    username: root
+#    password: 1234
 
-    # TODO: HikariCP 설정 -> hikari 사용시 Database 설정 not found
-  #    hikari:
-#      driver-class-name: com.mysql.cj.jdbc.Driver
-#      idle-timeout: 180000 # 3*60*1000 = 3Min(유휴 상태 Connection 제거)
-#      max-lifetime: 900000 # 15*60*1000 = 15Min(최대 Connection 생존 시간)
-#      minimum-idle: 0 # 최소 Connection 수
-#      maximum-pool-size: 10 # 최대 Connection 수
-#      cache-prep-stmts: true # Prepared Statement 캐시 사용 여부
-#      prep-stmt-cache-size: 200 # Prepared Statement 캐시 사이즈
-#      prep-stmt-cache-sql-limit: 2048 # Prepared Statement 캐시 SQL 사이즈
-#      use-server-prep-stmts: true # 서버에서 Prepared Statement 사용 여부(서버 쿼리 최적화)
-#      jdbc-url: jdbc:mysql://localhost:3306/multi_dev?useSSL=false # for hikari connection pool (수동설정)
-#      username: root
-#      password: 1234
+      hikari:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        idle-timeout: 180000 # 3*60*1000 = 3Min(유휴 상태 Connection 제거)
+        max-lifetime: 900000 # 15*60*1000 = 15Min(최대 Connection 생존 시간)
+        minimum-idle: 0 # 최소 Connection 수
+        maximum-pool-size: 10 # 최대 Connection 수
+        cache-prep-stmts: true # Prepared Statement 캐시 사용 여부
+        prep-stmt-cache-size: 200 # Prepared Statement 캐시 사이즈
+        prep-stmt-cache-sql-limit: 2048 # Prepared Statement 캐시 SQL 사이즈
+        use-server-prep-stmts: true # 서버에서 Prepared Statement 사용 여부(서버 쿼리 최적화)
+        jdbc-url: jdbc:mysql://localhost:3306/multi_dev?useSSL=false # for hikari connection pool (수동설정)
+        username: root
+        password: 1234
 
 
   # Oracle DB TEST
-  datasource-oracle:
-    hikari:
-      driver-class-name: oracle.jdbc.OracleDriver
-      jdbc-url: jdbc:oracle:thin:@localhost:1521:xe
-      username: root
-      password: 1234
+#  datasource-oracle:
+#    hikari:
+#      driver-class-name: oracle.jdbc.OracleDriver
+#      jdbc-url: jdbc:oracle:thin:@localhost:1521:xe
+#      username: root
+#      password: 1234
 
 
 # JPA Setting
@@ -55,7 +54,7 @@ logging:
       SQL: DEBUG #DEBUG, OFF
       type.descriptor.sql: trace #trace, OFF
 
-db:
-  source:
-    oracle:
-      enabled: false
+#db:
+#  source:
+#    oracle:
+#      enabled: false

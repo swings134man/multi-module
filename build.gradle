@@ -5,7 +5,7 @@ plugins {
 }
 
 allprojects {
-    group = 'com.lucas'
+    group = 'com.test'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = '17'
 
@@ -33,6 +33,12 @@ subprojects { // 각모듈에 적용할 공통 설정
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation("org.mariadb.jdbc:mariadb-java-client:2.1.2") //mariaDB
+        implementation 'mysql:mysql-connector-java:8.0.26'
+        implementation group: 'com.oracle.database.jdbc', name: 'ojdbc6', version: '11.2.0.4'
+        implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8' // Model mapper
     }
 
     tasks.named('bootJar') { //빌드 시 bootjar 파일로
