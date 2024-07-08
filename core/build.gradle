@@ -30,14 +30,14 @@ jar {
 }
 
 // Query DSL
-def querysdlDir = "$buildDir/generated/querydsl"
+def queryDslDir = "$buildDir/generated/querydsl"
 querydsl {
     jpa = true
-    querydslSourcesDir = querysdlDir
+    querydslSourcesDir = queryDslDir
 }
 
 sourceSets {
-    main.java.srcDir querysdlDir
+    main.java.srcDir queryDslDir
 }
 
 compileQuerydsl {
