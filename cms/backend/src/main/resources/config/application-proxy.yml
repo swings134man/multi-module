@@ -33,11 +33,11 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MariaDBDialect
     hibernate:
-      ddl-auto: create #fixme
-    defer-datasource-initialization: true #fixme
+      ddl-auto: none #fixme
+    defer-datasource-initialization: false #fixme
   sql:
     init:
-      mode: always #fixme
+      mode: never #fixme
 
 logging:
   level:

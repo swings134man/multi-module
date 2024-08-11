@@ -13,6 +13,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,6 +42,16 @@ public class DataSourceConfig {
         em.setDataSource(mainDataSource());
         em.setPackagesToScan("com.test.core.modules");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+
+        // Add JPA properties -
+        Properties jpaProperties = new Properties();
+        jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MariaDBDialect");
+        jpaProperties.put("hibernate.show_sql", "true");
+        jpaProperties.put("hibernate.format_sql", "true");
+        //Use MultiModule project (if yml Not working)
+//        jpaProperties.put("hibernate.hbm2ddl.auto", "create");
+        em.setJpaProperties(jpaProperties);
+
         return em;
     }
 
