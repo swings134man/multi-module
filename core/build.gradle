@@ -14,6 +14,9 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.kohsuke:github-api:1.301' // GitHub API
 
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    implementation 'com.zaxxer:HikariCP'  // HikariCP 의존성
+
     // Query DSL
 //    implementation 'com.querydsl:querydsl-jpa:${queryDslVersion}'
 //    implementation 'com.querydsl:querydsl-apt:${queryDslVersion}'

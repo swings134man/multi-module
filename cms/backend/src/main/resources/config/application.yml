@@ -3,4 +3,4 @@ spring:
     name: cms-app
 
   profiles:
-    active: mysql
+    active: proxy

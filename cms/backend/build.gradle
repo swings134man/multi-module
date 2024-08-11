@@ -11,8 +11,11 @@ dependencies {
     // core Module
     implementation project(':core')
 
-//    implementation group: 'com.querydsl', name: 'querydsl-jpa', version: '5.0.0'
-//    annotationProcessor group: 'com.querydsl', name: 'querydsl-apt', version: '5.0.0'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'// jasypt
+
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 bootJar {
@@ -33,3 +36,7 @@ ext.profile = (!project.hasProperty('profile') || !profile) ? 'maria' : profile
 //        }
 //    }
 //}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

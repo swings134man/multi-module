@@ -1,0 +1,54 @@
+spring:
+  config:
+    activate:
+      on-profile: proxy
+
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+  datasource:
+    hikari:
+      driver-class-name: org.mariadb.jdbc.Driver
+      idle-timeout: 180000 # 3*60*1000 = 3Min(유휴 상태 Connection 제거)
+      max-lifetime: 900000 # 15*60*1000 = 15Min(최대 Connection 생존 시간)
+      minimum-idle: 0 # 최소 Connection 수
+      maximum-pool-size: 10 # 최대 Connection 수
+      cache-prep-stmts: true # Prepared Statement 캐시 사용 여부
+      prep-stmt-cache-size: 200 # Prepared Statement 캐시 사이즈
+      prep-stmt-cache-sql-limit: 2048 # Prepared Statement 캐시 SQL 사이즈
+      use-server-prep-stmts: true # 서버에서 Prepared Statement 사용 여부(서버 쿼리 최적화)
+      jdbc-url: jdbc:mariadb://192.168.35.135:3360/multi_dev?useSSL=false
+      username: ENC(v3mydSVaY9ms5U5uYdU7PoEAqmixk4LAhAg8GrFGb9Pg/ikITf5piZdsqJCorJ8H)
+      password: ENC(XULQw3vHvVP2UTgVE00wvWIK1J/Q1c5DlGcUavfMukx/eOOLcEf1WG+zHemrST77)
+
+
+  # JPA Setting
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MariaDBDialect
+    hibernate:
+      ddl-auto: create #fixme
+    defer-datasource-initialization: true #fixme
+  sql:
+    init:
+      mode: always #fixme
+
+logging:
+  level:
+    org.hibernate:
+      SQL: DEBUG
+      type.descriptor.sql: trace
+
+# port
+server:
+  port: 8088
+
+jasypt:
+  encryptor:
+    password: encryptKeyTestKey # TODO: 환경변수 || GitSecretKey 로 숨김 필요.
