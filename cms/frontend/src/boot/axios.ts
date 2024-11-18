@@ -8,16 +8,26 @@ declare module '@vue/runtime-core' {
   }
 }
 
-// Be careful when using SSR for cross-request state pollution
-// due to creating a Singleton instance here;
-// If any client changes this (global) instance, it might be a
-// good idea to move this instance creation inside of the
-// "export default () => {}" function below (which runs individually
-// for each client)
-
 const isTest = true; // false: local, true: server
 
 const api = axios.create({ baseURL: isTest ? 'http://127.0.0.1:8088' : '' }); // TODO: domain 존재시?
+
+// Retrieve tokens
+const accessToken = localStorage.getItem('accessToken');
+const refreshToken = document.cookie.split('; ').find(row => row.startsWith('refreshToken='))?.split('=')[1];
+
+// Set up Axios interceptors
+api.interceptors.request.use(config => {
+  if (accessToken) {
+    config.headers['Authorization'] = `Bearer ${accessToken}`;
+  }
+  if (refreshToken) {
+    config.headers['x-refresh-token'] = refreshToken;
+  }
+  return config;
+}, error => {
+  return Promise.reject(error);
+});
 
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api

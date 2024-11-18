@@ -12,6 +12,10 @@
         color="primary"
         @click="$router.push(item.link)">
       </q-btn>
+      <q-btn
+        label="Test APIS"
+        color="primary"
+        @click="test()"/>
     </q-list>
 
   </q-page>
@@ -20,9 +24,23 @@
 
 <script setup lang="ts">
 
+import axios from "axios";
+import {api} from "boot/axios";
+
 const list = [
   {label: 'test1', link: '/test1'},
 ]
+
+const test = () => {
+  console.log('test');
+  api.get('http://localhost:9999/test')
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+}
 
 </script>
 

@@ -15,6 +15,18 @@
           CMS Back Office
         </q-toolbar-title>
 
+        <div style="margin-right: 30px">
+          <q-btn
+            flat
+            dense
+            round
+            icon="login"
+            aria-label="Login"
+            label="Login"
+            @click="callLoginPage"
+          />
+        </div>
+
         <div>
           <q-toggle
             v-model="darkMode"
@@ -65,6 +77,7 @@ import {defineComponent, onMounted, ref, defineProps} from 'vue';
 import EssentialLink from 'components/EssentialLink.vue';
 import {useQuasar} from "quasar";
 import {useThemeStore} from "stores/theme";
+import { getCodeFromUrl, exchangeCodeForToken } from 'src/utils/auth';
 
 const linksList = [
   // {
@@ -150,6 +163,7 @@ const comp = defineComponent({
 onMounted(() => {
   console.log('MainLayout mounted');
   init();
+  checkAuth();
 });
 
 const init = () => {
@@ -165,11 +179,33 @@ const setup = () => {
   }
 };
 
+const checkAuth = () => {
+  // TODO: Token has exist in Cookie Or LocalStorage Do Not Call Utils()
+  const code = getCodeFromUrl();
+  console.log('code :', code);
+  if (code) {
+    exchangeCodeForToken(code);
+  }
+}
+
 const toggleDarkMode = () => {
   console.log('toggleDarkMode', darkMode.value);
   $q.dark.set(darkMode.value);
   store.setDark(darkMode.value);
 
   console.log('Pinia Store Dark', store.dark);
+};
+
+const callLoginPage = () => {
+  console.log('callLoginPage');
+  const authUrl = 'http://localhost:9999/oauth2/authorize';
+  const params = new URLSearchParams({
+    response_type: 'code',
+    client_id: 'multi',
+    scope: 'openid',
+    redirect_uri: 'http://localhost:9000'
+  });
+
+  window.location.href = `${authUrl}?${params.toString()}`;
 };
 </script>
