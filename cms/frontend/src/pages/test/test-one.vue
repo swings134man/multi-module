@@ -52,8 +52,21 @@ const testColumns = [
       })
       .catch((err) => {
         console.log(err);
+        noApi();
       })
   }
+
+const noApi = () => {
+  console.log('no api');
+  const data1 = [{
+    id: 1,
+    message: 'test msg',
+    createdDate: '2024-12-28',
+    updateDate: '2024-12-28'
+  }]
+  data.value = data1;
+  tsData.value = data1 as Test;
+}
 </script>
 
 <style scoped>
